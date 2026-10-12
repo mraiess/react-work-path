@@ -1,25 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+      function App() 
+      {
+        let styleList ={
+          padding: 10+"px", 
+          marging: 10+"px",
+          backgroundColor : "red"
+        }
+        let ageStg = 19;
+        let stg = {
+          nom : "raiess",
+          prenom : "mohamed",
+          group : 201,
+          filliere : "dev",
+          age : ageStg,
+        }
+        
+        function isAdult(){
+          return stg.age > 20 ? "adult" : "mineur"
+        }
+        return (
+          <div style = "{styleList}">
+            201
+            <p>nom : {stg.nom}</p>
+            <p>prenom : {stg.prenom}</p>
+            <p>group : {stg.group}</p>
+            <p>age : {stg.age}-----{ageStg}</p>
+            is adult :{isAdult()}
+
+          </div>
+        )
+      };
+      
 
 export default App;
