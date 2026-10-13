@@ -1,9 +1,7 @@
-import Header from '../src/header/header'
-import Nav from '../src/navigation/navigation'
-import Footer from '../src/footer/footer'
-import Details from '../src/content/details'
-import General from '../src/content/general'
-import Profile from '../src/content/general'
+import Header from './header/header'
+import Nav from './navigation/navigation'
+import Footer from './footer/footer'
+import Profile from './content/profile'
 
 import './App.css';
 

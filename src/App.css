@@ -1,5 +1,29 @@
 .App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+}
+
+.footer {
+  margin-top: auto;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: #282c34;
+  color: #d5d8de;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.footer-text {
+  margin: 0;
+}
+
+.footer-text:hover {
+  color: #61dafb;
+  transition: color 0.2s ease;
 }
 
 .App-logo {

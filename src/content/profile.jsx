@@ -1,6 +1,6 @@
-import Details from '../src/content/details'
-import General from '../src/content/general'
-import Other from '../src/content/other'
+import Details from './details'
+import General from './general'
+import Other from './other'
 
 function app() {
     return (
@@ -15,3 +15,5 @@ function app() {
         </div>
     )
 }
+
+export default app;
