@@ -1,94 +1,75 @@
 import './App.css';
 
 function App() {
-
-
   function handleSubmit(e) {
     e.preventDefault();
 
     const formData = new FormData(e.target);
 
     const data = Object.fromEntries(formData.entries());
-
     console.log(data);
-
   }
+
   return (
-    <div>
-      <h1>Membership Registration</h1> <br />
+    <div className="App">
+      <h1>Membership Registration</h1>
 
-      <form onSubmit={handleSubmit}>
-        <label>First Name:</label>
-        <input type="text" name="firstName" required />
+      <form className="registration-form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="firstName">First Name:</label>
+          <input id="firstName" type="text" name="firstName" required />
+        </div>
 
-        <br /><br />
+        <div className="form-group">
+          <label htmlFor="lastName">Last Name:</label>
+          <input id="lastName" type="text" name="lastName" required />
+        </div>
 
-        <label>Last Name:</label>
-        <input type="text" name="lastName" required />
+        <div className="form-group">
+          <label htmlFor="adresse">Address:</label>
+          <input id="adresse" type="text" name="adresse" required />
+        </div>
 
-        <br /><br />
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input id="email" type="email" name="email" required />
+        </div>
 
-        <label>Adresse:</label>
-        <input type="text" name="adresse" required />
+        <div className="form-group">
+          <label htmlFor="phone">Phone Number:</label>
+          <input id="phone" type="tel" name="phone" required />
+        </div>
 
-        <br /><br />
+        <div className="form-group">
+          <label htmlFor="city">City and state (comma separated):</label>
+          <input id="city" type="text" name="city" required />
+        </div>
 
-        <label>Email:</label>
-        <input type="email" name="email" required />
+        <div className="form-group">
+          <label htmlFor="zcode">Zip Code:</label>
+          <input id="zcode" type="number" name="zcode" required />
+        </div>
 
-        <br /><br />
+        <fieldset className="form-group membership-group">
+          <legend>Membership Level:</legend>
+          <label className="membership-option">
+            <input type="radio" name="membership" value="Bronze" required /> Bronze
+          </label>
+          <label className="membership-option">
+            <input type="radio" name="membership" value="Silver" /> Silver
+          </label>
+          <label className="membership-option">
+            <input type="radio" name="membership" value="Gold" /> Gold
+          </label>
+          <label className="membership-option">
+            <input type="radio" name="membership" value="Platinum" /> Platinum
+          </label>
+        </fieldset>
 
-        <label>Phone Number:</label>
-        <input type="tel" name="phone" required />
-
-        <br /><br />
-
-        <label>city and state spaced by gomma:</label>
-        <input type="text" name="city" required />
-
-        <br /><br />
-
-        <label>Zip Code:</label>
-        <input type="number" name="zcode" required />
-
-        <br /><br />
-
-        <label>Membership Level:</label> <br />
-
-        <label >
-          <input
-            type="radio"
-            name="membership"
-            value="Bronze"
-            required
-          />
-          Bronze</label>
-        <label >
-          <input
-            type="radio"
-            name="membership"
-            value="Silver"
-          />
-          Silver</label>
-        <label >
-          <input
-            type="radio"
-            name="membership"
-            value="Gold"
-          />
-          Gold</label>
-        <label >
-          <input
-            type="radio"
-            name="membership"
-            value="Platinum"
-          />
-          Platinum</label>
-
-        <br /><br />
-
-        <button type="submit">Register</button>
-        <button type="reset">Reset</button>
+        <div className="form-actions">
+          <button type="submit">Register</button>
+          <button type="reset">Reset</button>
+        </div>
       </form>
     </div>
   );
