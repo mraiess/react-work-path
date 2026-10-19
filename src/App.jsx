@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import PseudoInput from './components/PseudoInput';
+import StudentProfile from './components/StudentProfile';
+import ProductList from './components/ProductList';
+import ListeTaches from './components/ListeTaches';
+import FavoriteMovies from './components/FavoriteMovies';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <PseudoInput /> */}
+
+      {/* <StudentProfile /> */}
+
+      {/* <ProductList /> */}
+
+      <ListeTaches />
+
+      {/* <FavoriteMovies /> */}
     </div>
   );
 }
