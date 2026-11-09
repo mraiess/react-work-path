@@ -1,0 +1,22 @@
+{
+  "model": {
+    "provider": "node-llama-cpp",
+    "repository": "Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF",
+    "quantization": "Q4_K_M",
+    "contextSize": 4096,
+    "threads": 4,
+    "port": 18081,
+    "baseURL": "http://127.0.0.1:11434/v1",
+    "model": "qwen2.5-coder:1.5b",
+    "allowRemote": false
+  },
+  "memoryMode": "low",
+  "verification": {
+    "lint": true,
+    "test": true,
+    "build": true,
+    "browser": true
+  },
+  "bridgePort": 18080,
+  "appURL": "http://127.0.0.1:5173"
+}
