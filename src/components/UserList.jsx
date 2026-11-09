@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function UserList(props) {
   const [users, setUsers] = useState([]);
@@ -25,8 +26,8 @@ function UserList(props) {
       <ul>
         {filtered.map(function(u) {
           return (
-            <li key={u.id} style={{ cursor: 'pointer' }} onClick={function() { props.onSelect(u); }}>
-              {u.name} - {u.username} - {u.email} - {u.address.city}
+            <li key={u.id}>
+              <Link to={'/users/' + u.id}>{u.name}</Link> - {u.username} - {u.email} - {u.address.city}
             </li>
           );
         })}

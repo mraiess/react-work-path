@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function PostList(props) {
   const [posts, setPosts] = useState([]);
@@ -24,8 +25,8 @@ function PostList(props) {
       <ul>
         {filtered.map(function(p) {
           return (
-            <li key={p.id} style={{ cursor: 'pointer' }} onClick={function() { props.onSelect(p); }}>
-              {p.title}
+            <li key={p.id}>
+              <Link to={'/posts/' + p.id}>{p.title}</Link>
             </li>
           );
         })}
@@ -33,6 +34,5 @@ function PostList(props) {
     </div>
   );
 }
-
 
 export default PostList;

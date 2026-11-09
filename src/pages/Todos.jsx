@@ -5,8 +5,6 @@ import TodoForm from '../components/TodoForm';
 function Todos(props) {
   const [todos, setTodos] = useState([]);
   const [showForm, setShowForm] = useState(false);
-  const [editing, setEditing] = useState(null);
-  const [selected, setSelected] = useState(null);
 
   useEffect(function() {
     async function load() {
@@ -26,21 +24,6 @@ function Todos(props) {
     const data = await res.json();
     setTodos(todos.concat(data));
     setShowForm(false);
-  }
-
-  async function updateTodo(todo) {
-    const res = await fetch('https://jsonplaceholder.typicode.com/todos/' + editing.id, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(todo)
-    });
-    const data = await res.json();
-    const newList = todos.map(function(t) {
-      if (t.id === data.id) return data;
-      return t;
-    });
-    setTodos(newList);
-    setEditing(null);
   }
 
   async function toggleTodo(t) {
@@ -64,31 +47,13 @@ function Todos(props) {
     setTodos(newList);
   }
 
-  async function viewTodo(id) {
-    const res = await fetch('https://jsonplaceholder.typicode.com/todos/' + id);
-    const data = await res.json();
-    setSelected(data);
-  }
-
   return (
     <div>
       <h2>Todos</h2>
-      <button onClick={function() { setShowForm(true); setEditing(null); }}>Add Todo</button>
-      {showForm && !editing && <TodoForm onSubmit={createTodo} onCancel={function() { setShowForm(false); }} />}
-      {editing && <TodoForm initial={editing} onSubmit={updateTodo} onCancel={function() { setEditing(null); }} />}
+      <button onClick={function() { setShowForm(true); }}>Add Todo</button>
+      {showForm && <TodoForm onSubmit={createTodo} onCancel={function() { setShowForm(false); }} />}
       <div>
         <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
-      </div>
-      {selected && (
-        <div>
-          <p>{selected.title} - {selected.completed ? 'done' : 'todo'}</p>
-          <button onClick={function() { setEditing(selected); }}>Edit</button>
-        </div>
-      )}
-      <div>
-        <input placeholder="View todo by id" onKeyDown={function(e) {
-          if (e.key === 'Enter') viewTodo(e.target.value);
-        }} />
       </div>
     </div>
   );
